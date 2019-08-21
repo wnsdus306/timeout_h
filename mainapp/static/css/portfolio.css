@@ -16,22 +16,80 @@
         overflow: hidden;
     }
 
-    /* 상단 고정바 */
+     /* 상단 고정바 */
     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         width: 37rem;
         align-items: center;
         text-align: center;
         margin: 0 auto;
+    }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
     }
 
     #logo{
         width: auto;
         height: 1.8rem;
     }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 24px;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 하단 고정바 */
+    .foot-bar{
+        bottom: 0; 
+        position: fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 37rem;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+
 
     .profile{
         margin: 5rem auto;
@@ -194,22 +252,78 @@
         overflow: hidden;
     }
 
-    /* 상단 고정바 */
-    .head-bar{
-
+     /* 상단 고정바 */
+     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
-        justify-content: center;
-        width: 100%;
+        justify-content: space-between;
+        width: 37rem;
         align-items: center;
         text-align: center;
         margin: 0 auto;
+    }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
     }
 
     #logo{
         width: auto;
         height: 1.8rem;
+    }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 24px;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 하단 고정바 */
+    .foot-bar{
+        bottom: 0; 
+        position: fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 37rem;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
     }
 
     .profile{
@@ -372,21 +486,78 @@
         overflow: hidden;
     }
 
-    /* 상단 고정바 */
+     /* 상단 고정바 */
     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         width: 100vw;
         align-items: center;
         text-align: center;
         margin: 0 auto;
     }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
+    }
 
     #logo{
         width: auto;
         height: 1.8rem;
+    }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 24px;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 하단 고정바 */
+    .foot-bar{
+        bottom: 0; 
+        position: fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:2.5rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:2.5rem;
     }
 
     .profile{

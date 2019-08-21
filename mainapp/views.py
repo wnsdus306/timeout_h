@@ -34,12 +34,23 @@ def portfolio(request):
                 break
         return render(request, 'portfolio.html')
 
+# 프로필 사진이랑 닉네임 바꾸기
+def myportfolio(request,us_id):
+    use = get_object_or_404(User_account, pk= us_id)
+    return render(request, 'myportfolio.html', {'us_id' : us_id, 'us':use})
 
+def newmyportfolio(request,us_id):
+    if request.method == 'POST':
+        us = get_object_or_404(User_account,pk = us_id)
+        us.image = request.FILES['image']
+        us.save()
+        return redirect('/home')
 def home(request):
     users = User_account.objects.all()
     groups = Group_account.objects.all()
     us = User_account()
     user_group= []
+    use = User_account.objects.get(name = request.user)
     
     for user in users:
         if user.name.username == request.user.username:
@@ -66,7 +77,7 @@ def home(request):
         first=sche.pop(0)
         first.date += timedelta(hours=9)
 
-    return render(request, 'home.html',{'groups': user_group,'us':us, 'first':first})
+    return render(request, 'home.html',{'groups': user_group,'us':us, 'first':first, 'us_id': use.id})
 
     
 def invite(request):
@@ -80,6 +91,7 @@ def invite(request):
     cnt = 0
     cnt_list =[]
     check = 0
+    use = User_account.objects.get(name = request.user)
 
 
     if request.method == 'POST':
@@ -121,14 +133,15 @@ def invite(request):
                 us_f_list.append(us_f)
                 
 
-        return render(request, 'invite.html', {'us_f_list':us_f_list,'group':group})
+        return render(request, 'invite.html', {'us_f_list':us_f_list,'group':group, 'us_id' : use.id})
 
     else:
-        return render(request, 'invite.html')
+        return render(request, 'invite.html', {'us_id' : use.id})
 
 
 
 def search(request):
+    use = User_account.objects.get(name = request.user)
     group = request.POST['gr']
     if request.method == 'POST':
         us = User_account.objects.get(name = request.user)
@@ -150,7 +163,7 @@ def search(request):
                     us_f_list.append(us_f)
             
 
-        return render(request, 'search.html', {'us_m':us_m, 'group':group, 'member':member, 'us_f_list':us_f_list})
+        return render(request, 'search.html', {'us_m':us_m, 'group':group, 'member':member, 'us_f_list':us_f_list, 'us_id' : use.id})
     return render(request, 'search.html')
 
 
@@ -163,7 +176,8 @@ def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
     sche= Schedule.objects.filter(group_ac = group)
     history = Group_history.objects.filter( g = group).order_by('-id')
-    return render(request, 'group.html',{'group' : group, 'schedules': sche, 'histories':history})
+    use = User_account.objects.get(name = request.user)
+    return render(request, 'group.html',{'group' : group, 'schedules': sche, 'histories':history, 'us_id' : use.id})
 
 
 def newSchedule(request,group_id): 
@@ -180,6 +194,7 @@ def create(request,group_id):
 
     for group_user in schedule.group_ac.members.all():
         group_user.user_money = group_user.user_money - int(schedule.penalty)
+        group_user.save()
         schedule.group_ac.group_money += int(schedule.penalty)
         punish = Punish()
         punish.nick = group_user.nickname
@@ -188,7 +203,7 @@ def create(request,group_id):
         punish.save()
     
     schedule.group_ac.save()
-    group_user.save()
+    
 
     return redirect('/group/'+str(schedule.group_ac.id))
 
@@ -197,6 +212,7 @@ def check(request):
     inv_list=[]
     invitations = Invite.objects.all()
     us = User_account.objects.get(name = request.user)
+    use = User_account.objects.get(name = request.user)
 
     for inv in invitations:
         if inv.receive == us.nickname:
@@ -204,7 +220,7 @@ def check(request):
 
 
     
-    return render(request, 'check.html', {'inv_list':inv_list})
+    return render(request, 'check.html', {'inv_list':inv_list, 'us_id' : use.id})
 
 
 def yes(request, inv_id):
@@ -250,17 +266,18 @@ def map(request):
     punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
     sche = []
     first = []
+    use = User_account.objects.get(name = request.user)
     for key in punishs.all():
         sche.append(Schedule.objects.get(pk = key['schedule_id']))
     
     sche.sort(key=lambda r:r.date)
     
     if not sche:
-        pass
+        return render(request, 'map2.html', { 'us_id' : use.id})
     else: 
         first=sche.pop(0)
         first.date += timedelta(hours=9)
-    return render(request, 'map.html', {'schedule':sche, 'first':first})
+    return render(request, 'map.html', {'schedule':sche, 'first':first, 'us_id' : use.id})
     
 
 

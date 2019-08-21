@@ -26,21 +26,23 @@
                     <img id="logo" src="../static/img/로고화이트.png" alt="">
                 </div>
                 <div class="message">
-                    <div class="message-left">
-                        <img id="phone" src="../static/img/3.png" alt="">
-                    </div>
                     <div class="message-right">
                         <h1 id="title">"로그인해주세요"</h1>
                         <p id="title-2">타임아웃과의 소중한 약속을<br>지금, 시작해주세요</p>
+                    </div>
+                    <div class="message-left">
+                        <img id="phone" src="../static/img/3.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="first-bottom">
                 <div class="bottom">
-                    <a href="{% provider_login_url 'google' %}"><div class="button">
-                        <img id="loginicon" src="../static/img/google.png" alt="">
-                        <span id="name">구글로 타임아웃 함께하기</span>
-                    </div></a>
+                    <a href="{% provider_login_url 'google' %}">
+                        <div class="button">
+                            <img id="loginicon" src="../static/img/google.png" alt="">
+                            <span id="name">구글로 타임아웃 함께하기</span>
+                        </div>
+                    </a>
                     <div class="button2">
                         <img id="loginicon2" src="../static/img/facebook.png" alt="">
                         <span id="name2">페이스북으로 타임아웃 함께하기</span>

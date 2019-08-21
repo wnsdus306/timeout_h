@@ -91,6 +91,20 @@
         display: none;
     }
 
+    .no {
+        margin-top: 9rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nopromise {
+        text-align: center;
+        font-weight: bold;
+        color: #9c9c9c;
+        font-size: xx-large;
+    }
+
     /* 약속 내용 */
     .map-bottom {
         width: 50%;
@@ -368,22 +382,19 @@
     }
 
     /* 약속이 없을 때 */
+    
     .no {
-        margin: 0 auto;
-        margin-top: 8rem;
+        margin-top: 9rem;
         display: flex;
-
+        justify-content: center;
+        text-align: center;
     }
 
-    .no #noarrive {
-        justify-content: center;
-        align-items: center;
+    .nopromise {
         text-align: center;
-        font-size: xx-large;
         font-weight: bold;
-        color: #9c9c9c;;
-        margin: 0 auto;
-
+        color: #9c9c9c;
+        font-size: xx-large;
     }
 
     /* 지도인증 부분 */
@@ -714,21 +725,17 @@
 
     /* 약속이 없을 때 */
     .no {
-        margin: 0 auto;
-        margin-top: 8rem;
+        margin-top: 9rem;
         display: flex;
-
+        justify-content: center;
+        text-align: center;
     }
 
-    .no #noarrive {
-        justify-content: center;
-        align-items: center;
+    .nopromise {
         text-align: center;
-        font-size: xx-large;
         font-weight: bold;
-        color: #9c9c9c;;
-        margin: 0 auto;
-
+        color: #9c9c9c;
+        font-size: xx-large;
     }
 
     /* 지도인증 부분 */
@@ -737,8 +744,8 @@
         margin-left: auto;
         margin-right: auto;
         width: 95%;
-        height: 30rem;
-        border-radius: 3rem;
+        height: 32rem;
+        border-radius: 2rem;
         border: 0.3rem solid rgb(42 182 212);
         display: flex;
         flex-direction: column;
@@ -808,12 +815,17 @@
     #red{
         text-align: center;
         margin-top: 2%;
-        margin-right: 4%;
-        margin-left: 4%;
+        /* margin-right: 1%;
+        margin-left: 1%; */
         height: 2rem;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
     }
     #demo{
+
         margin-top: -0.5em;
+        font-size: 75%;
 
     }
 
@@ -842,14 +854,16 @@
     }
 
     .arrive-button #timeout {
-        margin-top: .3rem;
+        margin-top: 1rem;
         width: 80%;
         margin-left: 10%;
+        height : 70%;
     }
 
     /* 아래(약속) 부분 */
     .bottom {
-        height: 11rem;
+        height: auto;
+        max-height: 11rem;
         background-color: #faf8f8;
         width: 95%;
         margin-top: 1rem;
@@ -870,7 +884,8 @@
     }
 
     .schedule-scroll {
-        height: 6.8rem;
+        height: auto;
+        max-height: 6.6rem;
         overflow-y: scroll;
     }
 
@@ -878,6 +893,7 @@
         width: 90%;
         height: 3rem;
         margin-left: 5%;
+        margin-bottom: .5rem;
         background-color: rgb(84 103 143);
         border-radius: 1rem 1rem;
         text-align: center;
@@ -887,32 +903,34 @@
     .schedule #schedule-name {
         display: table-cell;
         vertical-align: middle;
-        width: 10rem;
+        width: 6rem;
         height: 3rem;
         color: white;
-        font-size: large;
+        padding-left: .5rem;
+        font-size: 90%;
         font-weight: bold;
     }
 
     .schedule #schedule-date {
         display: table-cell;
         vertical-align: middle;
-        width: 15rem;
+        width: 20rem;
         height: 3rem;
         color: white;
         font-weight: bold;
-        font-size: large;
+        font-size: 90%;
         text-align: center;
     }
 
     .schedule #schedule-money {
         display: table-cell;
         vertical-align: middle;
-        width: 10rem;
+        padding-right: .5rem;
+        width: 6rem;
         height: 3rem;
         color: white;
         font-weight: bold;
-        font-size: large;
+        font-size: 90%;
     }
 
     /* 하단 고정바 */
@@ -946,7 +964,8 @@
         height: 2.5rem;
         margin-right:2.5rem;
     }
-    
+
+
 
     /* 스크롤바 */
     ::-webkit-scrollbar {

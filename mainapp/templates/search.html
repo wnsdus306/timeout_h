@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -23,15 +22,15 @@
     </div>
 
     <!--계정-->
-    
+
     <form method='POST' name='myForm'>
-    {% csrf_token %}
-    
+        {% csrf_token %}
+
         <div class="top">
             <!-- 그룹명 -->
             <div class="nameform">
                 <img id="mark" src="../static/img/leftmark.png" alt="">
-                <input class="gname" placeholder="그룹명을 입력해주세요" type="text" required="" name='gr' value={{group}}>
+                <input id="gname" placeholder="그룹명을 입력해주세요" type="text" required="" name='gr' value={{group}}>
                 <img id="mark" src="../static/img/rightmark.png" alt="">
             </div>
         </div>
@@ -39,45 +38,57 @@
         <div class="middle">
             <!-- 멤버선택 -->
             <div class="members">
-            {% for user in us_f_list %}
-            {% if not user.image %}
-            <img id="mimg" src="../static/img/basic.png" alt="">
-            <img id="delete" src="../static/img/delete.png" alt="">
-            <p>{{user.nickname}}</p>
-            {% else %}
-            <img id="mimg" src="{{user.image.url}}" alt="">
-            <img id="delete" src="../static/img/delete.png" alt="">
-            <p>{{user.nickname}}</p>
-            {% endif %}
-            {% endfor %}
+                {% for user in us_f_list %}
+                {% if not user.image %}
+                <div class="member">
+                    <div class="member-top">
+                        <img id="mimg" src="../static/img/basic.png" alt="">
+                        <img id="delete" src="../static/img/delete.png" alt="">
+                    </div>
+                    <div class="member-bottom">
+                        <p id="name">{{user.nickname}}</p>
+                    </div>
+                </div>
+                {% else %}
+
+                <div class="member">
+                    <div class="member-top">
+                        <img id="mimg" src="{{user.image.url}}" alt="">
+                        <img id="delete" src="../static/img/delete.png" alt="">
+                    </div>
+                    <div class="member-bottom">
+                        <p id="name">{{user.nickname}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
 
             <!-- 멤버검색 -->
             <div class="searching">
                 <input id="search" placeholder="Search" type='text' name='invite' value={{member}}>
-                <input type='image' src="../static/img/search.png" id="sbutton"  onclick='mySubmit(1)'>
-                <!--<button id="sbutton"><img id="search-img" src="../static/img/search.png" alt=""></button>-->
-                
+                <div id="sbutton"><input type='image' src="../static/img/search.png" id="search-img" onclick='mySubmit(1)'></div>
             </div>
-        
-        
+
+
             <div class="smember">
                 <div class="info">
-                    
                     {% if not us_m.image %}
                     <img id="simg" src="../static/img/basic.png" alt="">
                     {% else %}
                     <img id="simg" src="{{us_m.image.url}}" alt="">
                     {% endif %}
-                    
                     <h1 id="sname">{{us_m.nickname}}</h1>
                 </div>
-                <input type='image'  src="../static/img/add.png" id="check"  onclick='mySubmit(2)'>
-                <!--<button type="submit" id="check"><img id="check-img" src="../static/img/add.png" alt=""></button>-->
+                <div id="check">
+                    <input type='image' src="../static/img/add.png" id="check-img" onclick='mySubmit(2)'>
+                </div>
             </div>
             <div class="container" id="new_test" style="display:flex;">
                 <div class="last">
-                        <a href='{% url "home" %}'><p id="submit">모임 생성</p></a>
+                    <a href='{% url "home" %}'>
+                        <p id="submit">모임 생성</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -88,21 +99,21 @@
         <a href="{% url 'home' %}"><img id="foot-home" src="../static/img/home.png" alt=""></a>
         <a href="{% url 'check' %}"><img id="foot-invite" src="../static/img/invite.png" alt=""></a>
         <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
-        <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
+        <a href="{% url 'myportfolio' us_id %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
     </div>
 
 </body>
 
 <script type="text/javascript">
-function mySubmit(index) {
-    if (index == 1) {
-        document.myForm.action = '{% url "search" %}';
+    function mySubmit(index) {
+        if (index == 1) {
+            document.myForm.action = '{% url "search" %}';
+        }
+        if (index == 2) {
+            document.myForm.action = '{% url "invite" %}';
+        }
+        document.myForm.submit();
     }
-    if (index == 2) {
-        document.myForm.action = '{% url "invite" %}';
-    }
-    document.myForm.submit();
-}
 </script>
 
 </html>

@@ -481,9 +481,9 @@
                 cursor: pointer;
             }
 
-            #logo {
-                width: auto;
-                height: 1.8rem;
+            .logo {
+                width: 2rem !important;
+                height: 1.8rem !important;
             }
 
             #logo:hover {
@@ -651,15 +651,16 @@
 </head>
 
 <body>
-    <!-- 페이지 -->
     <div class="center">
         <div class="page">
             <!--고정 상단바-->
             <div class="head-bar">
-                <img id="icon1" src="../static/img/list.png" alt="">
-                <img id="logo" src="../static/img/로고화이트.png" alt="">
-                <img id="icon2" src="../static/img/bell.png" alt="">
+                <img id="icon1" src="../static/img/list.png" alt=""/>
+                <img id="logo" src="../static/img//로고화이트.png" alt=""/>
+                <img id="icon2" src="../static/img/bell.png" alt=""/>
             </div>
+
+
             <div class="schedule">
                 <span class="title">그룹약속 생성</span>
                 <form action="{% url 'create' group.id %}">
@@ -696,6 +697,8 @@
                 <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
             </div>
 
+            
+
         </div>
 
     </div>
@@ -714,6 +717,20 @@
             });
             $('label#name').click(function () {
                 $(this).parent().children('.form-control').focus();
+            });
+        });
+    </script>
+
+    <script>
+        $("img").each(function() {
+            var $imgTag = $(this);
+            var real_width, real_height;
+
+        $("<img />")
+            .attr("../static/img/로고화이트.png", $imgTag.attr("../static/img/로고화이트.png"))
+            .load(function() {
+            real_width = this.width;
+            real_height = this.height;
             });
         });
     </script>

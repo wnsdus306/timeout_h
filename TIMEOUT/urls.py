@@ -25,6 +25,9 @@ urlpatterns = [
     path('login/', mainapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
     path('portfolio/', mainapp.views.portfolio, name='portfolio'),
+    # 프로필 사진이랑 닉네임 바꾸는 url
+    path('myportfolio/<int:us_id>', mainapp.views.myportfolio, name='myportfolio'),
+    path('myportfolio/<int:us_id>/new', mainapp.views.newmyportfolio, name='newmyportfolio'),
     path('check/', mainapp.views.check, name='check'),
     path('invite/', mainapp.views.invite, name='invite'),
     path('yes/<int:inv_id>', mainapp.views.yes, name='yes'),
@@ -40,5 +43,6 @@ urlpatterns = [
     path('confirm/<int:first_id>', mainapp.views.confirm, name='confirm'),
     path('scheDelete/<int:first_id>', mainapp.views.scheDelete, name='scheDelete'),
     path('home/charge/<int:user_id>', mainapp.views.charge , name='charge'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

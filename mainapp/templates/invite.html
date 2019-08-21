@@ -30,7 +30,7 @@
             <!-- 그룹명 -->
             <div class="nameform">
                 <img id="mark" src="../static/img/leftmark.png" alt="">
-                <input class="gname" placeholder="그룹명을 입력해주세요" type="text" required="" name='gr' value={{group.title}}>
+                <input id="gname" placeholder="그룹명을 입력해주세요" type="text" required="" name='gr' value={{group.title}}>
                 <img id="mark" src="../static/img/rightmark.png" alt="">
             </div>
         </div>
@@ -38,30 +38,36 @@
         <div class="middle">
             <!-- 멤버선택 -->
             <div class="members">
-                <!-- <div class="each"> -->
                 {% for user in us_f_list%}
                 {% if not user.image%}
-                <img id="mimg" src="../static/img/basic.png" alt="">
-                <img id="delete" src="../static/img/delete.png" alt="">
-                <p>{{user.nickname}}</p>
-                <!-- </div> -->
+                <div class="member">
+                    <div class="member-top">
+                        <img id="mimg" src="../static/img/basic.png" alt="">
+                        <img id="delete" src="../static/img/delete.png" alt="">
+                    </div>
+                    <div class="member-bottom">
+                        <p id="name">{{user.nickname}}</p>
+                    </div>
+                </div>
                 {% else %}
-
-                <!-- <div class="each"> -->
-                <img id="mimg" src="{{user.image.url}}" alt="">
-                <img id="delete" src="../static/img/delete.png" alt="">
-                <p>{{user.nickname}}</p>
+                <div class="member">
+                    <div class="member-top">
+                        <img id="mimg" src="{{user.image.url}}" alt="">
+                        <img id="delete" src="../static/img/delete.png" alt="">
+                    </div>
+                    <div class="member-bottom">
+                        <p id="name">{{user.nickname}}</p>
+                    </div>
+                </div>
                 {% endif %}
                 {% endfor %}
-                <!-- </div> -->
-
-
             </div>
 
             <!-- 멤버검색 -->
             <div class="searching">
-                <input id="search" placeholder="Search" type='text' name='invite'>
-                <button id="sbutton" type='submit'><img id="search-img" src="../static/img/search.png" alt=""></button>
+                <input id="search" placeholder="Search" type='text' name='invite' value={{member}}>
+                <div id="sbutton"><input type='image' src="../static/img/search.png" id="search-img"
+                        onclick='mySubmit(1)'></div>
             </div>
 
 
@@ -82,12 +88,8 @@
         <a href="{% url 'home' %}"><img id="foot-home" src="../static/img/home.png" alt=""></a>
         <a href="{% url 'check' %}"><img id="foot-invite" src="../static/img/invite.png" alt=""></a>
         <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
-        <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
+        <a href="{% url 'myportfolio' us_id %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
     </div>
 </body>
 
 </html>
-
-
-
-

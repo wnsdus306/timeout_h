@@ -1323,7 +1323,7 @@ html.open {
     #foot-home{
         width: auto;
         height: 2.5rem;
-        margin-left:4rem;
+        margin-left:2.5rem;
     }
     #foot-invite{
         width: auto;
@@ -1336,7 +1336,7 @@ html.open {
     #foot-user{
         width: auto;
         height: 2.5rem;
-        margin-right:4rem;
+        margin-right:2.5rem;
     }
     
         /* 스크롤바 */

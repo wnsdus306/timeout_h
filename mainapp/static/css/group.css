@@ -723,7 +723,6 @@
         width : 100vw;
         height: 100vh;
         background-color: #faf8f8;
-        /* padding-bottom:1rem; */
     }
     /* 상단 고정바 */
     .head-bar{
@@ -769,7 +768,7 @@
 
     /* 젤 위에 썸네일 */
     .group-thumbnail {
-        margin-top:17%;
+        margin-top:23%;
         margin-left:5%;
         height: 8rem;
         margin-bottom:3%;
@@ -816,7 +815,7 @@
     .schedule-scroll{
         width: 100%;
         height: auto;
-        max-height: 6rem;
+        max-height:6rem;
         overflow-x: hidden;
         overflow-y:scroll;
     }
@@ -826,7 +825,7 @@
         height: 2.5rem;
         margin-left: 2vw;
         margin-right: 2vw;
-        margin-bottom:0.5rem;
+        margin-bottom:0.6rem;
         background-color: rgb(84 103 143);
         border-radius: 1rem 1rem;
         text-align: center;
@@ -839,17 +838,18 @@
     .schedule #schedule-name {
         display: table-cell;
         vertical-align: middle;
-        width : 20.5rem;
+        padding-left: .5rem;
+        width : 7rem;
         height: 2.5rem;
         color : #f5f5f5;
-        font-size: 1rem;
+        font-size: 100%;
         font-weight: bold;
     }
 
     .schedule #schedule-date {
         display: table-cell;
         vertical-align: middle;
-        width : 20.5rem;
+        width :18rem;
         height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
@@ -860,7 +860,7 @@
     .schedule #schedule-money {
         display: table-cell;
         vertical-align: middle;
-        width : 20.5rem;
+        width : 7rem;
         height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
@@ -942,7 +942,7 @@
         margin-left: 2vw;
         background-color: rgb(188 224 253);
         overflow: auto;
-        margin-bottom:0.7rem;
+        margin-bottom: 4rem;
     }
 
     /* 멤버별 지각비 내역 */
@@ -962,8 +962,7 @@
         width: 3.5em;
         height: 1rem;
         color : #1f1f1f;
-        padding-left: 1.5rem;
-        padding-right: 1rem;
+        padding-left: .5rem;
         font-weight:bold;
         text-align: left;
         font-size:1rem;
@@ -973,7 +972,7 @@
     #member-name{
         display: table-cell;
         vertical-align: middle;
-        width: 12.5rem;
+        width: 18rem;
         height: 1rem;
         color : #1f1f1f;
         font-weight:bold;
